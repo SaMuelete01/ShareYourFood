@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class SignIn extends AppCompatActivity {
+public class  SignIn extends AppCompatActivity {
     Button signIn;
     Button signUp;
     private String username;
@@ -27,15 +27,17 @@ public class SignIn extends AppCompatActivity {
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                username = ((EditText) findViewById (R.id.username1)).getText().toString();
+                Intent intent = new Intent(SignIn.this, Profile.class);
+                startActivity(intent);
+                /*username = ((EditText) findViewById (R.id.username1)).getText().toString();
                 password = ((EditText) findViewById (R.id.password1)).getText().toString();
-                if (true /*exists(username, password)*/) {
+                if (true /*exists(username, password)) {
                     //Intent intent = new Intent(SignIn.this, InicioApp.class);
                    // startActivity(intent);
                 } else {
                     Toast toast = Toast.makeText(getApplicationContext(), "Wrong data", Toast.LENGTH_SHORT);
                     toast.show();
-                }
+                }*/
             };
         });
 
