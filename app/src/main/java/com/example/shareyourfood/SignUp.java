@@ -11,11 +11,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class SignUp extends AppCompatActivity {
-    Button signUp;
-    private String username;
-    private String password, password2;
-    private EditText txtpassword;
-    Toast toast;
+
+    private Button signUp;
+    private EditText username, password, password2;
+    private Toast toast;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,40 +27,22 @@ public class SignUp extends AppCompatActivity {
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                username = ((EditText) findViewById (R.id.username1)).getText().toString();
-                password = ((EditText) findViewById (R.id.password1)).getText().toString();
-                txtpassword = ((EditText) findViewById (R.id.password1));
-                password2 = ((EditText) findViewById (R.id.password2)).getText().toString();
+                username = ((EditText) findViewById (R.id.username1));
+                password = ((EditText) findViewById (R.id.password1));
+                password2 = ((EditText) findViewById (R.id.password2));
+
                 if (password.equals(password2)) {
-                    if (true /*exists(username, password)*/) {
-                        userExistsMessage();
-                        Intent intent = new Intent(SignUp.this, SignIn.class);
-                        startActivity(intent);
+                    if (true /* comprobar si ese usuario y contraseña existen*/) {
+                        username.setError("This account already exists");
                     } else {
-                        userRegistered();
-                        //Intent intent = new Intent(SignIn.this, InicioApp.class);
-                        //startActivity(intent);
+                        // Si no son datos repetidos se registra la nueva cuenta
+                        toast = Toast.makeText(getApplicationContext(), "user registered correctly", Toast.LENGTH_SHORT);
+                        toast.show();
+                        //startActivity(new Intent(SignIn.this, InicioApp.class);
                     }
-                } else {
-                    txtpassword.setError("hola");
-                    //passwordMessage();
-                }
+                } else
+                    password2.setError("the passwords must be equals");
             }
         });
-    }
-
-    public void passwordMessage(){
-        toast = Toast.makeText(getApplicationContext(),"the passwords must be equals", Toast.LENGTH_SHORT);
-        toast.show();
-    }
-
-    public void userExistsMessage(){
-        toast = Toast.makeText(getApplicationContext(),"this account already exists, sign in", Toast.LENGTH_SHORT);
-        toast.show();
-    }
-
-    public void userRegistered(){
-        toast = Toast.makeText(getApplicationContext(), "user registered correctly", Toast.LENGTH_SHORT);
-        toast.show();
     }
 }

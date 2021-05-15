@@ -11,10 +11,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class SignIn extends AppCompatActivity {
-    Button signIn;
-    Button signUp;
-    private String username;
-    private String password;
+
+    private Button signIn;
+    private Button signUp;
+    private EditText username;
+    private EditText password;
+    private Toast toast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,13 +29,12 @@ public class SignIn extends AppCompatActivity {
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                username = ((EditText) findViewById (R.id.username1)).getText().toString();
-                password = ((EditText) findViewById (R.id.password1)).getText().toString();
-                if (true /*exists(username, password)*/) {
-                    //Intent intent = new Intent(SignIn.this, InicioApp.class);
-                   // startActivity(intent);
+                username = ((EditText) findViewById (R.id.username1));
+                password = ((EditText) findViewById (R.id.password1));
+                if (true /*comprobar si ese usuario y contraseña existen*/) {
+                   // startActivity(new Intent(SignIn.this, InicioApp.class);
                 } else {
-                    Toast toast = Toast.makeText(getApplicationContext(), "Wrong data", Toast.LENGTH_SHORT);
+                    toast = Toast.makeText(getApplicationContext(), "Wrong Data", Toast.LENGTH_SHORT);
                     toast.show();
                 }
             };
@@ -43,8 +44,7 @@ public class SignIn extends AppCompatActivity {
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SignIn.this, SignUp.class);
-                startActivity(intent);
+                startActivity(new Intent(SignIn.this, SignUp.class));
             }
         });
     };
