@@ -9,10 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ShareYourFood">
+        <activity android:name=".Configuracion"></activity>
         <activity
             android:name=".Profile"
             android:label="@string/title_activity_profile"
-            android:theme="@style/Theme.ShareYourFood.NoActionBar"></activity>
+            android:theme="@style/Theme.ShareYourFood.NoActionBar" />
         <activity
             android:name=".SignUp"
             android:theme="@style/Theme.AppCompat.NoActionBar" />

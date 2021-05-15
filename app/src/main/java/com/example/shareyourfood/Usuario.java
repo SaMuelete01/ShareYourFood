@@ -14,8 +14,8 @@ public class Usuario {
     public Usuario(String username, String password, File foto){
         this.username=username;
         this.password=password;
-        Bitmap myBitmap = BitmapFactory.decodeFile(foto.getAbsolutePath());
-        this.foto.setImageBitmap(myBitmap);
+        //Bitmap myBitmap = BitmapFactory.decodeFile(foto.getAbsolutePath());
+        //this.foto.setImageBitmap(myBitmap);
     }
 
     public String getUsername(){
@@ -26,5 +26,9 @@ public class Usuario {
     }
     public ImageView getFoto(){
         return foto;
+    }
+
+    public void setUsername(String user){
+        this.username = user;
     }
 }

@@ -1,5 +1,6 @@
 package com.example.shareyourfood;
 
+import android.content.Intent;
 import android.graphics.drawable.Icon;
 import android.os.Bundle;
 
@@ -31,19 +32,20 @@ public class Profile extends AppCompatActivity {
         setSupportActionBar(toolbar);
         CollapsingToolbarLayout toolBarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
         toolBarLayout.setTitle(getTitle());
-
-        Usuario user = new Usuario("SaMuelete01", "holaxd", new File("D:\\GitHub\\Share-Yout-Food\\ShareYourFood\\app\\src\\main\\res\\drawable-v24\\avatar.png"));
+        //TODO no se ve el avatar, en el de casa lo tengo bien pero no se me pusheo
+        Usuario user = new Usuario("SaMuelete01", "holaxd",
+                new File("D:\\GitHub\\Share-Yout-Food\\ShareYourFood\\app\\src\\main\\res\\drawable-v24\\avatar.png"));
         TextView nick = (TextView) findViewById(R.id.nick);
         nick.setText(user.getUsername());
         ImageView avatar = (ImageView) findViewById(R.id.avatar);
-        avatar = user.getFoto();
+        //avatar = user.getFoto();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.config);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Aqui se abriria el menu de configuracion", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(Profile.this, Configuracion.class);
+                startActivity(intent);
             }
         });
     }

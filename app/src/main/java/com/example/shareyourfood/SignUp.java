@@ -28,8 +28,8 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 username = ((EditText) findViewById (R.id.username1)).getText().toString();
-                password = ((EditText) findViewById (R.id.password1)).getText().toString();
-                txtpassword = ((EditText) findViewById (R.id.password1));
+                password = ((EditText) findViewById (R.id.changePass1)).getText().toString();
+                txtpassword = ((EditText) findViewById (R.id.changePass1));
                 password2 = ((EditText) findViewById (R.id.password2)).getText().toString();
                 if (password.equals(password2)) {
                     if (true /*exists(username, password)*/) {
